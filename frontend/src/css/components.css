@@ -1,0 +1,30 @@
+.btn { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 8px; padding: 0 18px; background: var(--brand); color: white; font-weight: 800; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(5, 122, 118, 0.24); }
+.btn-light { background: white; color: var(--brand-dark); }
+.btn-outline { background: transparent; color: var(--brand); border: 1px solid var(--line); }
+.btn-small { min-height: 40px; padding: 0 14px; }
+.icon-button { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 8px; background: white; color: var(--brand-dark); cursor: pointer; }
+.menu-toggle { display: none; }
+.product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.product-card { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: white; box-shadow: var(--shadow); transition: transform .18s ease, box-shadow .18s ease; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 24px 58px rgba(16, 32, 39, 0.16); }
+.product-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.product-body { padding: 20px; }
+.product-meta, .product-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.product-meta { color: var(--brand); font-size: 0.9rem; font-weight: 800; }
+.product-meta span { display: inline-flex; align-items: center; gap: 5px; }
+.product-actions strong { color: var(--brand-dark); font-size: 1.15rem; }
+.feature-grid, .values-grid, .dashboard-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.feature, .values-grid div, .dashboard-panel { padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: white; }
+.feature { min-height: 190px; box-shadow: 0 12px 34px rgba(16, 32, 39, 0.06); }
+.feature svg, .values-grid svg, .dashboard-panel svg { color: var(--brand); width: 32px; height: 32px; }
+.stats-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: -44px; position: relative; z-index: 2; }
+.stat-block { padding: 24px; background: white; border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); }
+.stat-block strong { display: block; font-size: 2rem; color: var(--brand-dark); }
+.stat-block span { color: var(--muted); font-weight: 700; }
+.search-input, input, textarea { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 13px 14px; background: white; color: var(--ink); }
+.search-input { max-width: 320px; }
+.filter-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.chip, .mode-switch button { border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; background: white; color: var(--brand-dark); font-weight: 800; cursor: pointer; }
+.active-chip { background: var(--brand) !important; color: white !important; border-color: var(--brand) !important; }
+.form-message { margin: 14px 0 0; color: var(--brand-dark); font-weight: 800; }

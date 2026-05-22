@@ -1,0 +1,34 @@
+@media (max-width: 1040px) {
+  .hero-layout, .workflow-section, .quality-layout, .products-hero-layout, .dashboard-hero { grid-template-columns: 1fr; }
+  .hero-panel { max-width: 520px; }
+}
+@media (max-width: 900px) {
+  .menu-toggle { display: grid; }
+  .nav-links { position: absolute; left: 20px; right: 20px; top: 76px; display: none; flex-direction: column; align-items: stretch; padding: 18px; background: white; border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); }
+  .nav-links.is-open { display: flex; }
+  .product-grid, .section-grid, .about-layout, .auth-page, .contact-layout, .category-grid, .mission-grid, .about-values-grid, .product-support-band, .dashboard-lower-grid { grid-template-columns: 1fr; }
+  .stats-row, .dashboard-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 22px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .auth-visual { min-height: 260px; }
+  .section-heading { align-items: start; flex-direction: column; }
+  .search-input { max-width: none; }
+  .workflow-section { padding: 64px 0; }
+  .catalogue-toolbar { flex-direction: column; align-items: stretch; }
+  .contact-mini-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .container { width: min(100% - 28px, 1160px); }
+  .hero { min-height: auto; padding: 72px 0 92px; }
+  .hero h1 { font-size: 3.3rem; }
+  .hero-mini-list, .stats-row, .dashboard-stats, .feature-grid, .values-grid, .dashboard-grid { grid-template-columns: 1fr; }
+  .trust-row span { width: 100%; }
+  .auth-form, .contact-form, .contact-info { padding: 24px; }
+  .product-actions { align-items: stretch; flex-direction: column; }
+  .product-actions .btn { width: 100%; }
+  .category-card { min-height: auto; }
+  .workflow-step, .task-row, .pipeline-step { grid-template-columns: 1fr; }
+  .quality-points p { align-items: flex-start; }
+  .products-hero, .contact-page, .about-page { padding-top: 48px; }
+  .dashboard-hero, .catalogue-toolbar, .product-support-band, .task-panel, .pipeline-panel { padding: 20px; }
+  .about-image-wrap, .about-image-wrap img { min-height: 300px; }
+}
