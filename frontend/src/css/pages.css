@@ -1,7 +1,7 @@
 .hero { min-height: 78vh; display: flex; align-items: center; background-size: cover; background-position: center; color: white; }
 .hero-enhanced { position: relative; overflow: hidden; }
 .hero-enhanced::after { content: ''; position: absolute; inset: auto 0 0 0; height: 120px; background: linear-gradient(180deg, rgba(247,250,249,0), #f7faf9); pointer-events: none; }
-.hero h1 { margin-bottom: 18px; }
+.hero h1 { max-width: 760px; margin-bottom: 18px; font-size: 4.4rem; line-height: 1.03; }
 .hero p { max-width: 680px; color: rgba(255, 255, 255, 0.86); font-size: 1.1rem; }
 .hero .eyebrow { color: #9be0d6; }
 .hero-layout { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 42px; align-items: center; }
@@ -16,6 +16,7 @@
 .hero-panel-top strong { font-size: 3.2rem; line-height: 1; }
 .hero-mini-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
 .hero-mini-list span { padding: 10px; border-radius: 8px; background: rgba(255,255,255,.14); color: white; font-weight: 800; text-align: center; }
+.home-stats { margin-top: 28px; }
 .home-stats .stat-block { border-top: 4px solid var(--brand); }
 .home-intro-grid { align-items: center; }
 .elevated-grid .feature:nth-child(2), .elevated-grid .feature:nth-child(3) { background: #fbf4ec; }
@@ -48,8 +49,14 @@
 .auth-form, .contact-form { display: flex; flex-direction: column; gap: 16px; background: white; }
 .auth-form { justify-content: center; padding: 48px; }
 .auth-form label, .contact-form label { display: grid; gap: 8px; color: var(--brand-dark); font-weight: 800; }
+.compact-auth-form { justify-content: center; }
+.auth-heading h1 { margin-bottom: 8px; font-size: 2.7rem; line-height: 1.04; }
+.auth-heading p { margin-bottom: 0; }
 .mode-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .mode-switch button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.auth-switch-note { text-align: center; }
+.auth-switch-note p { margin: 0; color: var(--muted); font-weight: 750; }
+.auth-switch-note button { border: 0; background: transparent; color: var(--brand); font: inherit; font-weight: 900; cursor: pointer; }
 .dashboard-stats { margin: 0 0 24px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .contact-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 36px; align-items: start; }
 .contact-info { padding: 34px; border-radius: 8px; background: var(--brand-dark); color: white; }

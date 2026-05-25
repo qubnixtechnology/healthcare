@@ -1,6 +1,6 @@
-﻿# GL Healthcare Pharma Website
+# CURAVERIS HEALTHCARE PRIVATE LIMITED Pharma Website
 
-A full-stack website for GL Healthcare based on the provided intake brief.
+A full-stack website for CURAVERIS HEALTHCARE PRIVATE LIMITED based on the provided intake brief.
 
 ## Structure
 
@@ -37,3 +37,4 @@ npm run dev
 ```
 
 Then open `http://localhost:5173`.
+

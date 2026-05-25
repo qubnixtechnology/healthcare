@@ -1,4 +1,13 @@
-﻿<?php
+<?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
 function send_json(array $payload, int $status = 200): void
 {
     http_response_code($status);
@@ -6,11 +15,13 @@ function send_json(array $payload, int $status = 200): void
     echo json_encode($payload);
     exit;
 }
+
 function read_json(): array
 {
     $data = json_decode(file_get_contents('php://input'), true);
     return is_array($data) ? $data : [];
 }
+
 function require_fields(array $data, array $fields): void
 {
     foreach ($fields as $field) {

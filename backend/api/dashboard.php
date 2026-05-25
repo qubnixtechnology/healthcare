@@ -1,7 +1,8 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../config/response.php';
+require_once __DIR__ . '/../config/auth_guard.php';
 try {
+    require_admin();
     $products = (int) db()->query('SELECT COUNT(*) FROM products')->fetchColumn();
     $enquiries = (int) db()->query('SELECT COUNT(*) FROM enquiries')->fetchColumn();
     $customers = (int) db()->query('SELECT COUNT(*) FROM users')->fetchColumn();

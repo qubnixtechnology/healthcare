@@ -15,7 +15,7 @@ function ProductCard({ product }) {
         <h3>{product.name}</h3>
         <p>{product.description}</p>
         <div className="product-actions">
-          <strong>Rs. {Number(product.price).toLocaleString('en-IN')}</strong>
+          <strong>{Number(product.price) > 0 ? `Rs. ${Number(product.price).toLocaleString('en-IN')}` : 'Consultation'}</strong>
           <Button variant="outline" to={enquiryPath}>Enquire</Button>
         </div>
       </div>

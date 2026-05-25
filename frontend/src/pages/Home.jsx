@@ -10,36 +10,79 @@ import {
   Syringe,
   Truck,
 } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
 import ProductCard from '../components/ProductCard.jsx';
 import StatBlock from '../components/StatBlock.jsx';
 import Button from '../components/Button.jsx';
-import { heroImage, products } from '../data/siteData.js';
+import { company, heroImage, products as fallbackProducts } from '../data/siteData.js';
+import { api } from '../services/api.js';
 
 const categories = [
   {
     icon: FlaskConical,
-    title: 'Restorative Materials',
-    text: 'Composite kits, bonding systems, etchants, liners, and daily restorative consumables.',
+    title: 'Advanced Pharma Software',
+    text: 'Digital workflows for transparent pharmaceutical marketing, reporting, and operational control.',
   },
   {
     icon: Syringe,
-    title: 'Impression & Prosthetic',
-    text: 'Impression material, trays, prosthetic support products, and crown-and-bridge supplies.',
+    title: 'GPS Field Tracking',
+    text: 'Real-time field-force visibility that keeps every clinic, doctor, and hospital visit accountable.',
   },
   {
     icon: ShieldCheck,
-    title: 'Infection Control',
-    text: 'Sterilization pouches, clinic safety essentials, and hygiene-focused supply packs.',
+    title: 'Strip-by-Strip QR Authentication',
+    text: 'Unique QR verification for medicine authenticity, traceability, and instant digital confidence.',
   },
 ];
 
 const steps = [
-  'Select your required dental material category.',
-  'Send an enquiry with product quantity and clinic details.',
-  'Receive availability, pricing, and support from GL Healthcare.',
+  'Share your pharma marketing, clinic reach, or product traceability requirement.',
+  'Our team reviews the operational scope, locations, and digital reporting needs.',
+  `Receive transparent guidance and next steps from ${company.name}.`,
 ];
 
+function AnimatedNumber({ value, suffix = '' }) {
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    let frame;
+    const duration = 900;
+    const startTime = performance.now();
+
+    const update = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplayValue(Math.round(value * eased));
+      if (progress < 1) frame = requestAnimationFrame(update);
+    };
+
+    frame = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(frame);
+  }, [value]);
+
+  return <>{displayValue}{suffix}</>;
+}
+
 function Home() {
+  const [products, setProducts] = useState(fallbackProducts);
+
+  useEffect(() => {
+    api.products()
+      .then((data) => {
+        if (Array.isArray(data.products) && data.products.length) setProducts(data.products);
+      })
+      .catch(() => setProducts(fallbackProducts));
+  }, []);
+
+  const productStats = useMemo(() => {
+    const categories = new Set(products.map((product) => product.category).filter(Boolean));
+    const totalStock = products.reduce((sum, product) => sum + Number(product.stock || 0), 0);
+    return {
+      categoryCount: categories.size,
+      clinicReadySupplies: totalStock,
+    };
+  }, [products]);
+
   return (
     <>
       <section
@@ -48,69 +91,69 @@ function Home() {
       >
         <div className="container hero-layout">
           <div className="hero-content">
-            <p className="eyebrow">Dental material products for professionals</p>
-            <h1>GL Healthcare</h1>
+            <p className="eyebrow">Excellence driven by technology, care delivered by experts</p>
+            <h1>{company.name}</h1>
             <p>
-              A focused dental supply website for clinics that need dependable restorative, impression,
-              adhesive, sterilization, and chairside material products with quick enquiry support.
+              A tech-enabled pharmaceutical marketing company where patient care meets advanced software,
+              GPS-enabled field tracking, real-time reporting, and strip-by-strip QR authentication.
             </p>
             <div className="hero-actions">
-              <Button to="/products">Explore Catalogue <ArrowRight size={18} /></Button>
-              <Button variant="light" to="/contact">Request Bulk Quote</Button>
+              <Button to="/products">Explore Solutions <ArrowRight size={18} /></Button>
+              <Button variant="light" to="/contact">Contact Team</Button>
             </div>
-            <div className="trust-row" aria-label="GL Healthcare service strengths">
-              <span><BadgeCheck size={17} /> Dentist-focused catalogue</span>
-              <span><Truck size={17} /> Enquiry-led ordering</span>
-              <span><Headphones size={17} /> Direct support</span>
+            <div className="trust-row" aria-label={`${company.name} service strengths`}>
+              <span><BadgeCheck size={17} /> Strip-level QR verification</span>
+              <span><Truck size={17} /> GPS-enabled reporting</span>
+              <span><Headphones size={17} /> Transparent support</span>
             </div>
           </div>
 
           <aside className="hero-panel" aria-label="Quick product summary">
             <div className="hero-panel-top">
-              <span><Sparkles size={18} /> Clinic supply focus</span>
-              <strong>250+</strong>
+              <span><Sparkles size={18} /> Pharma-tech focus</span>
+              <strong><AnimatedNumber value={productStats.clinicReadySupplies} suffix="+" /></strong>
             </div>
-            <p>Dental materials organized for easy browsing, faster quoting, and repeat clinic purchasing.</p>
+            <p>Digital pharma operations organized for authenticity, traceability, fast reporting, and dependable reach.</p>
             <div className="hero-mini-list">
-              <span>Restoratives</span>
-              <span>Impression</span>
-              <span>Adhesives</span>
-              <span>Sterilization</span>
+              <span>QR Codes</span>
+              <span>GPS Tracking</span>
+              <span>Reporting</span>
+              <span>Verified Reach</span>
             </div>
           </aside>
         </div>
       </section>
 
       <section className="container stats-row home-stats" aria-label="Business highlights">
-        <StatBlock value="4" label="Core product groups" />
-        <StatBlock value="250+" label="Clinic-ready supplies" />
+        <StatBlock value={<AnimatedNumber value={productStats.categoryCount} />} label="Core solution groups" />
+        <StatBlock value={<AnimatedNumber value={productStats.clinicReadySupplies} suffix="+" />} label="Verified reach capacity" />
         <StatBlock value="24 hr" label="Response target" />
       </section>
 
       <section className="container section-grid home-intro-grid">
         <div>
-          <p className="eyebrow">Built for dental clinics</p>
-          <h2>Clear product discovery, practical details, and simple enquiry flow.</h2>
+          <p className="eyebrow">Precision, transparency, and tech-enabled healthcare</p>
+          <h2>Patient care meets cutting-edge pharmaceutical operations.</h2>
           <p>
-            GL Healthcare helps dentists and clinic teams quickly understand what is available,
-            compare common dental material categories, and contact the supplier without friction.
+            {company.name} is building a transparent and secure ecosystem powered by Advanced Pharma
+            Software, GPS-enabled tracking, and smart strip-by-strip QR code integration.
           </p>
         </div>
         <div className="feature-grid elevated-grid">
-          <div className="feature"><PackageCheck /><h3>Curated stock</h3><p>Daily-use dental material categories shaped around real clinic needs.</p></div>
-          <div className="feature"><ShieldCheck /><h3>Quality focus</h3><p>Clean product details, professional visuals, and confidence-building service signals.</p></div>
-          <div className="feature"><Truck /><h3>Fast enquiry flow</h3><p>Customers can request pricing and availability from the contact and catalogue pages.</p></div>
-          <div className="feature"><BadgeCheck /><h3>Dentist audience</h3><p>Messaging, categories, and layout are focused on dental professionals.</p></div>
+          <div className="feature"><PackageCheck /><h3>Digital infrastructure</h3><p>Modern pharma software streamlines reach, reporting, and accountability.</p></div>
+          <div className="feature"><ShieldCheck /><h3>QR authenticity</h3><p>Strip-level verification helps healthcare professionals and consumers confirm product authenticity.</p></div>
+          <div className="feature"><Truck /><h3>Real-time field visibility</h3><p>GPS-based field tracking supports precise, time-bound clinic and hospital outreach.</p></div>
+          <div className="feature"><BadgeCheck /><h3>Zero-gap ambition</h3><p>A tech-powered framework designed to help quality medicines reach patients without delay.</p></div>
         </div>
       </section>
 
       <section className="category-band">
         <div className="container section-heading">
           <div>
-            <p className="eyebrow">Shop by requirement</p>
-            <h2>Everything a dental team checks first.</h2>
+            <p className="eyebrow">Tech-powered framework</p>
+            <h2>Everything modern pharma operations need to stay accountable.</h2>
           </div>
-          <Button variant="unstyled" className="text-action" to="/products">Browse all categories</Button>
+          <Button variant="unstyled" className="text-action" to="/products">Browse all solutions</Button>
         </div>
         <div className="container category-grid">
           {categories.map(({ icon: Icon, title, text }) => (
@@ -118,7 +161,7 @@ function Home() {
               <Icon />
               <h3>{title}</h3>
               <p>{text}</p>
-              <Button variant="unstyled" className="text-action" to="/products">View products <ArrowRight size={16} /></Button>
+              <Button variant="unstyled" className="text-action" to="/products">View solution <ArrowRight size={16} /></Button>
             </article>
           ))}
         </div>
@@ -127,10 +170,10 @@ function Home() {
       <section className="product-band enhanced-products">
         <div className="container section-heading">
           <div>
-            <p className="eyebrow">Featured products</p>
-            <h2>Dental essentials for modern clinics</h2>
+            <p className="eyebrow">Featured solutions</p>
+            <h2>Digital tools for transparent pharma marketing</h2>
           </div>
-          <Button variant="unstyled" className="text-action" to="/products">All products</Button>
+          <Button variant="unstyled" className="text-action" to="/products">All solutions</Button>
         </div>
         <div className="container product-grid">
           {products.slice(0, 3).map((product) => <ProductCard key={product.id} product={product} />)}
@@ -139,11 +182,11 @@ function Home() {
 
       <section className="container workflow-section">
         <div className="workflow-copy">
-          <p className="eyebrow">How ordering works</p>
-          <h2>Simple buying support from enquiry to quote.</h2>
+          <p className="eyebrow">How engagement works</p>
+          <h2>From requirement to transparent digital execution.</h2>
           <p>
-            The website is designed to bring customers from product interest to supplier conversation quickly,
-            with enough information to make the first enquiry meaningful.
+            The website brings healthcare partners from operational interest to a focused Curaveris conversation,
+            with enough detail to discuss reach, reporting, verification, and implementation.
           </p>
           <Button to="/contact">Start an enquiry</Button>
         </div>
@@ -160,13 +203,13 @@ function Home() {
       <section className="quality-band">
         <div className="container quality-layout">
           <div>
-            <p className="eyebrow">GL Healthcare promise</p>
-            <h2>Professional product presentation for dentist customers.</h2>
+            <p className="eyebrow">{company.name} promise</p>
+            <h2>Transparent medicine reach powered by software, tracking, and verification.</h2>
           </div>
           <div className="quality-points">
-            <p><ClipboardCheck /> Product details that are easy to scan</p>
-            <p><ShieldCheck /> Trust-building layout and clean UI</p>
-            <p><Headphones /> Direct contact for requirements and quotes</p>
+            <p><ClipboardCheck /> Real-time reporting and data-led decisions</p>
+            <p><ShieldCheck /> Strip-by-strip QR code authentication</p>
+            <p><Headphones /> Direct contact for pharma operations and partnerships</p>
           </div>
         </div>
       </section>

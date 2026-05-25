@@ -1,6 +1,6 @@
-﻿# GL Healthcare Frontend
+# CURAVERIS HEALTHCARE PRIVATE LIMITED Frontend
 
-React/Vite frontend for GL Healthcare's dental material product website.
+React/Vite frontend for CURAVERIS HEALTHCARE PRIVATE LIMITED's tech-enabled pharma marketing website.
 
 ## Run
 
@@ -8,3 +8,4 @@ React/Vite frontend for GL Healthcare's dental material product website.
 npm install
 npm run dev
 ```
+

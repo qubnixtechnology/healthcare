@@ -2,18 +2,19 @@ import { useEffect, useState } from 'react';
 import { BarChart3, CheckCircle2, ClipboardList, Clock3, Package, TrendingUp, Users } from 'lucide-react';
 import StatBlock from '../components/StatBlock.jsx';
 import { api } from '../services/api.js';
+import { company } from '../data/siteData.js';
 
 const tasks = [
-  { label: 'Review new product enquiries', status: 'High priority' },
-  { label: 'Confirm stock for restorative kits', status: 'Today' },
-  { label: 'Send quote follow-up to clinic customer', status: 'Pending' },
+  { label: 'Review new pharma-tech enquiries', status: 'High priority' },
+  { label: 'Confirm QR verification implementation scope', status: 'Today' },
+  { label: 'Send follow-up to healthcare partner', status: 'Pending' },
 ];
 
 const pipeline = [
-  ['New enquiry', 'Collect product requirement and clinic details'],
-  ['Availability check', 'Confirm stock, pricing, and delivery feasibility'],
-  ['Quote sent', 'Share final quote and next steps with customer'],
-  ['Order follow-up', 'Support repeat purchases and relationship tracking'],
+  ['New enquiry', 'Collect solution requirement, location, and healthcare partner details'],
+  ['Scope review', 'Confirm QR, GPS, reporting, and implementation needs'],
+  ['Proposal shared', 'Share next steps, timeline, and operating model'],
+  ['Execution follow-up', 'Support rollout, reporting, and relationship tracking'],
 ];
 
 function Dashboard() {
@@ -27,33 +28,33 @@ function Dashboard() {
     <section className="container page-section dashboard-page">
       <div className="dashboard-hero">
         <div>
-          <p className="eyebrow">Customer dashboard</p>
-          <h1>Track dental product interest, enquiries, and customer activity.</h1>
+          <p className="eyebrow">Operations dashboard</p>
+          <h1>Track pharma-tech enquiries, healthcare partners, and field activity.</h1>
           <p>
-            A practical dashboard surface for GL Healthcare to monitor product demand, clinic enquiries,
-            customer movement, and quote follow-ups from one place.
+            A practical dashboard surface for {company.name} to monitor solution demand, clinic and hospital
+            enquiries, field execution, and follow-ups from one place.
           </p>
         </div>
         <div className="dashboard-status-card">
           <Clock3 />
           <span>Today focus</span>
           <strong>{stats.enquiries} enquiries</strong>
-          <p>Review open requests and convert interested clinics into active customers.</p>
+          <p>Review open requests and convert interested healthcare partners into active engagements.</p>
         </div>
       </div>
 
       <div className="stats-row dashboard-stats">
-        <StatBlock value={stats.products} label="Products" />
+        <StatBlock value={stats.products} label="Solutions" />
         <StatBlock value={stats.enquiries} label="Enquiries" />
         <StatBlock value={stats.customers} label="Customers" />
         <StatBlock value={stats.pendingOrders} label="Pending orders" />
       </div>
 
       <div className="dashboard-grid dashboard-insight-grid">
-        <div className="dashboard-panel"><Package /><h2>Recent product requests</h2><p>Composite kits, impression material, sterilization pouches, bonding agents, and daily clinic consumables.</p></div>
-        <div className="dashboard-panel"><ClipboardList /><h2>Order workflow</h2><p>Review enquiry, confirm availability, send quote, prepare dispatch, and log follow-up activity.</p></div>
-        <div className="dashboard-panel"><Users /><h2>Customer segment</h2><p>Dentists, dental clinics, clinic owners, and dental procurement assistants.</p></div>
-        <div className="dashboard-panel"><BarChart3 /><h2>Sales focus</h2><p>Grow catalogue enquiries, improve quote speed, and convert repeat clinic supply needs.</p></div>
+        <div className="dashboard-panel"><Package /><h2>Recent solution requests</h2><p>QR authentication, GPS tracking, pharma software, reporting, and verified medicine reach.</p></div>
+        <div className="dashboard-panel"><ClipboardList /><h2>Engagement workflow</h2><p>Review enquiry, confirm scope, share proposal, prepare rollout, and log follow-up activity.</p></div>
+        <div className="dashboard-panel"><Users /><h2>Partner segment</h2><p>Doctors, hospitals, clinics, pharma partners, distributors, and healthcare operations teams.</p></div>
+        <div className="dashboard-panel"><BarChart3 /><h2>Growth focus</h2><p>Grow verified reach, improve reporting speed, and convert digital pharma operations needs.</p></div>
       </div>
 
       <div className="dashboard-lower-grid">

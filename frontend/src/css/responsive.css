@@ -1,6 +1,7 @@
 @media (max-width: 1040px) {
   .hero-layout, .workflow-section, .quality-layout, .products-hero-layout, .dashboard-hero { grid-template-columns: 1fr; }
   .hero-panel { max-width: 520px; }
+  .hero h1 { font-size: 3.6rem; }
 }
 @media (max-width: 900px) {
   .menu-toggle { display: grid; }
@@ -18,8 +19,11 @@
 }
 @media (max-width: 560px) {
   .container { width: min(100% - 28px, 1160px); }
+  .brand { max-width: calc(100vw - 112px); font-size: .82rem; }
+  .brand-icon { width: 40px; height: 40px; flex-basis: 40px; }
   .hero { min-height: auto; padding: 72px 0 92px; }
-  .hero h1 { font-size: 3.3rem; }
+  .hero h1 { font-size: 2.45rem; line-height: 1.08; }
+  .auth-heading h1 { font-size: 2.1rem; }
   .hero-mini-list, .stats-row, .dashboard-stats, .feature-grid, .values-grid, .dashboard-grid { grid-template-columns: 1fr; }
   .trust-row span { width: 100%; }
   .auth-form, .contact-form, .contact-info { padding: 24px; }

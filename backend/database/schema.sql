@@ -1,5 +1,5 @@
-﻿CREATE DATABASE IF NOT EXISTS gl_healthcare CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE gl_healthcare;
+CREATE DATABASE IF NOT EXISTS curaveris_healthcare CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE curaveris_healthcare;
 CREATE TABLE IF NOT EXISTS products (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(160) NOT NULL,
@@ -16,7 +16,16 @@ CREATE TABLE IF NOT EXISTS users (
   name VARCHAR(120) NOT NULL,
   email VARCHAR(180) NOT NULL UNIQUE,
   password_hash VARCHAR(255) NOT NULL,
+  role ENUM('user', 'admin') NOT NULL DEFAULT 'user',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS auth_tokens (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  token_hash CHAR(64) NOT NULL UNIQUE,
+  expires_at DATETIME NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS enquiries (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -28,7 +37,8 @@ CREATE TABLE IF NOT EXISTS enquiries (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 INSERT INTO products (name, category, price, rating, stock, image, description) VALUES
-('Restorative Composite Kit', 'Restoratives', 2450, 4.8, 42, 'https://images.pexels.com/photos/5355919/pexels-photo-5355919.jpeg?auto=compress&cs=tinysrgb&w=900', 'Light-cure composite shades for daily chairside restorative work.'),
-('Dental Impression Material', 'Impression', 1850, 4.7, 36, 'https://images.pexels.com/photos/4687153/pexels-photo-4687153.jpeg?auto=compress&cs=tinysrgb&w=900', 'Reliable impression material for crown, bridge, and prosthetic cases.'),
-('Sterilization Pouches Pack', 'Infection Control', 780, 4.9, 120, 'https://images.pexels.com/photos/7800526/pexels-photo-7800526.jpeg?auto=compress&cs=tinysrgb&w=900', 'Self-sealing pouches for instrument sterilization and clinic safety.'),
-('Bonding Agent System', 'Adhesives', 1320, 4.6, 55, 'https://images.unsplash.com/photo-1579165466741-7f35e4755660?auto=format&fit=crop&w=900&q=80', 'High-strength adhesive system for predictable bonding performance.');
+('Strip-by-Strip QR Authentication', 'Product Traceability', 0, 4.9, 120, 'https://images.pexels.com/photos/4047186/pexels-photo-4047186.jpeg?auto=compress&cs=tinysrgb&w=900', 'Unique strip-level QR verification for authentic, transparent, and instantly checkable medicines.'),
+('GPS Field Force Tracking', 'Field Operations', 0, 4.8, 85, 'https://images.pexels.com/photos/7709287/pexels-photo-7709287.jpeg?auto=compress&cs=tinysrgb&w=900', 'GPS-enabled reporting that keeps pharma outreach precise, time-bound, and accountable.'),
+('Advanced Pharma Software', 'Digital Infrastructure', 0, 4.9, 64, 'https://images.pexels.com/photos/8376277/pexels-photo-8376277.jpeg?auto=compress&cs=tinysrgb&w=900', 'Smart software workflows for transparent pharmaceutical marketing and operational visibility.'),
+('Real-Time Reporting System', 'Analytics', 0, 4.7, 56, 'https://images.unsplash.com/photo-1581093458791-9d42cc030d21?auto=format&fit=crop&w=900&q=80', 'Live reporting tools for tracking reach, performance, clinic activity, and field execution.');
+

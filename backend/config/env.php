@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 function load_env(): void
 {
     $path = dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env';

@@ -1,70 +1,70 @@
-import { Award, BadgeCheck, Building2, HeartPulse, PackageCheck, Target, Users } from 'lucide-react';
+import { Award, BadgeCheck, Building2, HeartPulse, MapPinned, PackageCheck, QrCode, Target, Users } from 'lucide-react';
 import { company } from '../data/siteData.js';
 
 const capabilities = [
-  'Dental materials arranged by clinical use',
-  'Simple enquiry-led buying journey',
-  'Product presentation made for dentist customers',
-  'Support for repeat clinic supply requirements',
+  'Advanced Pharma Software',
+  'GPS-Based Field Tracking',
+  'Real-Time Reporting',
+  'Strip-by-Strip QR Code Verification',
 ];
 
 function About() {
   return (
     <section className="page-section about-page">
       <div className="container page-intro about-hero-copy">
-        <p className="eyebrow">About GL Healthcare</p>
-        <h1>Supplying dental material products with clarity and care.</h1>
+        <p className="eyebrow">About {company.name}</p>
+        <h1>Precision, transparency, and tech-enabled healthcare.</h1>
         <p>
-          GL Healthcare is built around one clear goal: helping dentists discover, compare, and request dental
-          material products through a clean digital catalogue and a responsive enquiry process.
+          {company.name} represents a new pharmaceutical marketing model where patient care meets
+          cutting-edge technology, accountable field operations, and verified medicine authenticity.
         </p>
       </div>
 
       <div className="container about-layout about-story-layout">
         <div className="about-image-wrap">
           <img
-            src="https://images.pexels.com/photos/5355919/pexels-photo-5355919.jpeg?auto=compress&cs=tinysrgb&w=1400"
-            alt="Dental healthcare professional workspace and clinical material preparation"
+            src="https://images.pexels.com/photos/8376277/pexels-photo-8376277.jpeg?auto=compress&cs=tinysrgb&w=1400"
+            alt="Healthcare professional workspace with digital pharmaceutical operations"
           />
           <div className="about-image-note">
-            <strong>Dental-focused</strong>
-            <span>Built for clinics, dentists, and supply teams</span>
+            <strong>Strip-by-strip QR authentication</strong>
+            <span>Digital verification for authenticity and transparency</span>
           </div>
         </div>
         <div className="about-panel detailed-panel">
-          <p className="eyebrow">Client brief</p>
-          <h2>New website for dental material sales</h2>
+          <p className="eyebrow">About us</p>
+          <h2>Excellence driven by technology, care delivered by experts</h2>
           <p><strong>Company:</strong> {company.name}</p>
           <p><strong>Contact:</strong> {company.contact}</p>
-          <p><strong>Main goal:</strong> Sell dental material products.</p>
+          <p><strong>Main goal:</strong> Build a transparent, secure, and digital pharmaceutical marketing ecosystem.</p>
           <p><strong>Audience:</strong> {company.audience}</p>
-          <p><strong>Primary flow:</strong> Browse products, create customer account, send enquiry, track activity.</p>
+          <p><strong>Origin:</strong> Jhansi, Uttar Pradesh.</p>
         </div>
       </div>
 
       <div className="container mission-grid">
         <article>
           <Target />
-          <h3>Our focus</h3>
-          <p>Make dental product discovery simple for professionals who need dependable material options and clear next steps.</p>
+          <h3>Our mission</h3>
+          <p>Digitize the reach of life-saving medicines through GPS tracking, real-time reporting, and QR verification.</p>
         </article>
         <article>
-          <PackageCheck />
-          <h3>Product approach</h3>
-          <p>Organize core categories like restoratives, impressions, adhesives, and infection control into a clinic-ready catalogue.</p>
+          <QrCode />
+          <h3>Authentication</h3>
+          <p>Use strip-by-strip QR codes so medicines can be verified instantly by healthcare professionals and consumers.</p>
         </article>
         <article>
-          <Building2 />
-          <h3>Customer fit</h3>
-          <p>Support dentists and dental clinics that want quick supplier communication and practical product information.</p>
+          <MapPinned />
+          <h3>Field accountability</h3>
+          <p>Integrate the field force with real-time GPS reporting so operations remain precise, time-bound, and transparent.</p>
         </article>
       </div>
 
       <div className="container values-grid about-values-grid">
-        <div><HeartPulse /><h3>Clinic-first service</h3><p>Every page is built for dentists searching, comparing, and enquiring quickly.</p></div>
-        <div><Award /><h3>Professional catalogue</h3><p>Products are presented with categories, stock signals, prices, and concise descriptions.</p></div>
-        <div><Users /><h3>Relationship-led sales</h3><p>Contact and dashboard flows support customer enquiries and follow-ups.</p></div>
-        <div><BadgeCheck /><h3>Trust and clarity</h3><p>Clean page structure, direct contact details, and focused messaging help customers act with confidence.</p></div>
+        <div><HeartPulse /><h3>Patient care</h3><p>Technology is used to make quality healthcare more accessible, seamless, and dependable.</p></div>
+        <div><Award /><h3>Global ambition</h3><p>Curaveris is poised to redefine healthcare logistics and operations at a global standard.</p></div>
+        <div><Users /><h3>Healthcare reach</h3><p>Doctors, clinics, hospitals, and partners can connect through a more transparent operating model.</p></div>
+        <div><Building2 /><h3>Zero-gap infrastructure</h3><p>A tech-powered framework aims to reduce delays between verified medicines and patient needs.</p></div>
       </div>
 
       <div className="container capability-strip">

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ClipboardCheck, Filter, PackageSearch, Search, ShieldCheck, Truck } from 'lucide-react';
 import ProductCard from '../components/ProductCard.jsx';
 import Button from '../components/Button.jsx';
-import { products as fallbackProducts } from '../data/siteData.js';
+import { company, products as fallbackProducts } from '../data/siteData.js';
 import { api } from '../services/api.js';
 
 function Products() {
@@ -31,17 +31,17 @@ function Products() {
       <div className="products-hero">
         <div className="container products-hero-layout">
           <div>
-            <p className="eyebrow">Product catalogue</p>
-            <h1>Dental material products for daily clinic work.</h1>
+            <p className="eyebrow">Solution catalogue</p>
+            <h1>Tech-powered pharma marketing solutions for accountable healthcare reach.</h1>
             <p>
-              Browse restorative, impression, adhesive, and infection-control supplies with clear categories,
-              product notes, stock indicators, and enquiry-focused actions.
+              Browse QR authentication, GPS field tracking, real-time reporting, and pharma software
+              capabilities with clear categories, notes, capacity indicators, and enquiry-focused actions.
             </p>
           </div>
           <div className="catalogue-summary">
-            <span><PackageSearch /> {products.length} listed products</span>
+            <span><PackageSearch /> {products.length} listed solutions</span>
             <span><ClipboardCheck /> {categories.length - 1} active categories</span>
-            <span><Truck /> {totalStock}+ stock units shown</span>
+            <span><Truck /> {totalStock}+ reach capacity shown</span>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ function Products() {
       <div className="container catalogue-toolbar">
         <label className="search-box">
           <Search size={18} />
-          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by product, category, or use" />
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by solution, category, or use" />
         </label>
         <div className="filter-label"><Filter size={18} /> Filter category</div>
       </div>
@@ -65,9 +65,9 @@ function Products() {
       </div>
 
       <div className="container product-support-band">
-        <div><ShieldCheck /><h3>Quality-led supply</h3><p>Product sections are designed to help dental professionals quickly understand suitability and request details.</p></div>
-        <div><ClipboardCheck /><h3>Quote-ready enquiries</h3><p>Customers can shortlist requirements and contact GL Healthcare for pricing, availability, and ordering support.</p></div>
-        <div><Truck /><h3>Clinic purchase flow</h3><p>The catalogue supports repeat product discovery for clinics that need regular dental material supply.</p></div>
+        <div><ShieldCheck /><h3>Authenticity-led operations</h3><p>Solution sections help partners understand QR verification, traceability, and transparent medicine reach.</p></div>
+        <div><ClipboardCheck /><h3>Implementation-ready enquiries</h3><p>Healthcare partners can shortlist requirements and contact {company.name} for digital pharma support.</p></div>
+        <div><Truck /><h3>GPS-backed execution</h3><p>The catalogue supports field-force accountability for clinics, doctors, hospitals, and regional outreach.</p></div>
       </div>
     </section>
   );

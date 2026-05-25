@@ -1,19 +1,19 @@
 ﻿export const company = {
-  name: 'GL Healthcare',
-  contact: 'Lalu Yadav',
-  email: 'glhealthcare006@gmail.com',
-  phone: '9540815838',
-  audience: 'Dentists and dental procurement teams',
+  name: 'CURAVERIS HEALTHCARE PRIVATE LIMITED',
+  contact: 'Call or WhatsApp',
+  email: 'curaverishealthcare321@gmail.com',
+  phone: '7355423598',
+  audience: 'Doctors, hospitals, clinics, pharma partners, and healthcare distributors',
 };
 export const imageCredits = [
-  { label: 'Dental equipment photo on Pexels', url: 'https://www.pexels.com/photo/equipment-at-a-dentists-office-6812463/' },
-  { label: 'Dental tools photo on Pexels', url: 'https://www.pexels.com/photo/close-up-of-dentistry-tools-4687153/' },
+  { label: 'Healthcare technology photo on Pexels', url: 'https://www.pexels.com/search/healthcare%20technology/' },
+  { label: 'Pharmaceutical operations photo on Pexels', url: 'https://www.pexels.com/search/pharmaceutical/' },
   { label: 'Pharmaceutical lab photos on Unsplash', url: 'https://unsplash.com/s/photos/pharmaceutical-lab' },
 ];
-export const heroImage = 'https://images.pexels.com/photos/6812463/pexels-photo-6812463.jpeg?auto=compress&cs=tinysrgb&w=1600';
+export const heroImage = 'https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg?auto=compress&cs=tinysrgb&w=1600';
 export const products = [
-  { id: 1, name: 'Restorative Composite Kit', category: 'Restoratives', price: 2450, rating: 4.8, stock: 42, image: 'https://images.pexels.com/photos/5355919/pexels-photo-5355919.jpeg?auto=compress&cs=tinysrgb&w=900', description: 'Light-cure composite shades for daily chairside restorative work.' },
-  { id: 2, name: 'Dental Impression Material', category: 'Impression', price: 1850, rating: 4.7, stock: 36, image: 'https://images.pexels.com/photos/4687153/pexels-photo-4687153.jpeg?auto=compress&cs=tinysrgb&w=900', description: 'Reliable impression material for crown, bridge, and prosthetic cases.' },
-  { id: 3, name: 'Sterilization Pouches Pack', category: 'Infection Control', price: 780, rating: 4.9, stock: 120, image: 'https://images.pexels.com/photos/7800526/pexels-photo-7800526.jpeg?auto=compress&cs=tinysrgb&w=900', description: 'Self-sealing pouches for instrument sterilization and clinic safety.' },
-  { id: 4, name: 'Bonding Agent System', category: 'Adhesives', price: 1320, rating: 4.6, stock: 55, image: 'https://images.unsplash.com/photo-1579165466741-7f35e4755660?auto=format&fit=crop&w=900&q=80', description: 'High-strength adhesive system for predictable bonding performance.' },
+  { id: 1, name: 'Strip-by-Strip QR Authentication', category: 'Product Traceability', price: 0, rating: 4.9, stock: 120, image: 'https://images.pexels.com/photos/4047186/pexels-photo-4047186.jpeg?auto=compress&cs=tinysrgb&w=900', description: 'Unique strip-level QR verification for authentic, transparent, and instantly checkable medicines.' },
+  { id: 2, name: 'GPS Field Force Tracking', category: 'Field Operations', price: 0, rating: 4.8, stock: 85, image: 'https://images.pexels.com/photos/7709287/pexels-photo-7709287.jpeg?auto=compress&cs=tinysrgb&w=900', description: 'GPS-enabled reporting that keeps pharma outreach precise, time-bound, and accountable.' },
+  { id: 3, name: 'Advanced Pharma Software', category: 'Digital Infrastructure', price: 0, rating: 4.9, stock: 64, image: 'https://images.pexels.com/photos/8376277/pexels-photo-8376277.jpeg?auto=compress&cs=tinysrgb&w=900', description: 'Smart software workflows for transparent pharmaceutical marketing and operational visibility.' },
+  { id: 4, name: 'Real-Time Reporting System', category: 'Analytics', price: 0, rating: 4.7, stock: 56, image: 'https://images.unsplash.com/photo-1581093458791-9d42cc030d21?auto=format&fit=crop&w=900&q=80', description: 'Live reporting tools for tracking reach, performance, clinic activity, and field execution.' },
 ];
