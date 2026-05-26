@@ -1,12 +1,20 @@
 import { Star } from 'lucide-react';
 import Button from './Button.jsx';
 
+const fallbackImage = 'https://images.pexels.com/photos/8376295/pexels-photo-8376295.jpeg?auto=compress&cs=tinysrgb&w=900';
+
 function ProductCard({ product }) {
   const enquiryPath = `/contact?product=${encodeURIComponent(product.name)}`;
 
   return (
     <article className="product-card">
-      <img src={product.image} alt={product.name} />
+      <img
+        src={product.image}
+        alt={product.name}
+        onError={(event) => {
+          event.currentTarget.src = fallbackImage;
+        }}
+      />
       <div className="product-body">
         <div className="product-meta">
           <span>{product.category}</span>

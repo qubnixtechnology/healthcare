@@ -27,5 +27,10 @@ export const api = {
   login: (payload) => request('/auth.php?action=login', { method: 'POST', body: JSON.stringify(payload) }),
   signup: (payload) => request('/auth.php?action=signup', { method: 'POST', body: JSON.stringify(payload) }),
   contact: (payload) => request('/contact.php', { method: 'POST', body: JSON.stringify(payload) }),
-  stats: () => request('/dashboard.php'),
+  adminDashboardStats: () => request('/admin/dashboard-stats'),
+  adminEnquiries: () => request('/admin/enquiries'),
+  adminSolutions: () => request('/admin/solutions'),
+  adminUsers: () => request('/admin/users'),
+  adminPendingOrders: () => request('/admin/pending-orders'),
+  stats: () => request('/admin/dashboard-stats'),
 };

@@ -11,6 +11,17 @@ function Navbar() {
   const { isAuthenticated, isAdmin, logout, user } = useAuth();
   const links = [['/', 'Home'], ['/about', 'About'], ['/products', 'Products'], ['/contact', 'Contact']];
 
+  if (isAdmin) {
+    return (
+      <div className="admin-floating-actions" aria-label="Admin account actions">
+        <NavLink to="/dashboard" className={({ isActive }) => (isActive ? 'active' : undefined)}>
+          Admin
+        </NavLink>
+        <Button size="small" variant="outline" onClick={() => { logout(); setOpen(false); }}>Logout</Button>
+      </div>
+    );
+  }
+
   return (
     <header className="site-header">
       <nav className="nav container" aria-label="Primary navigation">
@@ -30,14 +41,9 @@ function Navbar() {
               {label}
             </NavLink>
           ))}
-          {isAdmin && (
-            <NavLink to="/dashboard" onClick={() => setOpen(false)} className={({ isActive }) => (isActive ? 'active' : undefined)}>
-              Admin
-            </NavLink>
-          )}
           {isAuthenticated ? (
             <>
-              <span className="nav-user">{user?.role === 'admin' ? 'Admin' : 'User'}: {user?.name}</span>
+              <span className="nav-user">User: {user?.name}</span>
               <Button size="small" variant="outline" onClick={() => { logout(); setOpen(false); }}>Logout</Button>
             </>
           ) : (

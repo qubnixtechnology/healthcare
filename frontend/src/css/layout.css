@@ -8,6 +8,9 @@
 .nav-links { display: flex; align-items: center; gap: 22px; font-weight: 700; color: #425158; }
 .nav-links a.active { color: var(--brand); }
 .nav-user { color: var(--brand-dark); font-size: .9rem; font-weight: 850; white-space: nowrap; }
+.admin-floating-actions { position: fixed; top: 14px; right: 24px; z-index: 40; display: flex; align-items: center; gap: 10px; padding: 6px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.96); box-shadow: 0 10px 28px rgba(16,32,39,.08); }
+.admin-floating-actions a { display: inline-flex; min-height: 36px; align-items: center; padding: 0 12px; color: var(--brand); font-weight: 900; white-space: nowrap; }
+.admin-floating-actions a.active { color: var(--brand); }
 .menu-toggle { display: none; }
 .site-footer { margin-top: 90px; padding: 54px 0; background: var(--brand-dark); color: white; }
 .site-footer p, .site-footer a { color: rgba(255, 255, 255, 0.78); }

@@ -5,7 +5,7 @@ import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Products from './pages/Products.jsx';
 import LoginSignup from './pages/LoginSignup.jsx';
-import Dashboard from './pages/Dashboard.jsx';
+import AdminPage from './pages/admin/AdminPage.jsx';
 import Contact from './pages/Contact.jsx';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
 
@@ -25,7 +25,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
             <Route path="/login" element={<LoginSignup />} />
-            <Route path="/dashboard" element={<AdminRoute><Dashboard /></AdminRoute>} />
+            <Route path="/dashboard" element={<AdminRoute><AdminPage /></AdminRoute>} />
+            <Route path="/dashboard/:section" element={<AdminRoute><AdminPage /></AdminRoute>} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
