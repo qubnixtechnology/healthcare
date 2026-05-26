@@ -1,6 +1,6 @@
 # CURAVERIS HEALTHCARE PRIVATE LIMITED Frontend
 
-React/Vite frontend for CURAVERIS HEALTHCARE PRIVATE LIMITED's tech-enabled pharma marketing website.
+React/Vite frontend for CURAVERIS HEALTHCARE PRIVATE LIMITED's tech-enabled marketing website.
 
 ## Run
 

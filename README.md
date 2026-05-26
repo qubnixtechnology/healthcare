@@ -1,4 +1,4 @@
-# CURAVERIS HEALTHCARE PRIVATE LIMITED Pharma Website
+# CURAVERIS HEALTHCARE PRIVATE LIMITED  Website
 
 A full-stack website for CURAVERIS HEALTHCARE PRIVATE LIMITED based on the provided intake brief.
 

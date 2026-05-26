@@ -17,6 +17,8 @@
 .site-footer a { display: block; margin: 8px 0; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px; }
 .footer-grid p { display: flex; align-items: center; gap: 8px; }
+.footer-credit { margin-top: 34px; text-align: center; }
+.footer-credit a { display: inline-flex; margin: 0; color: white; font-weight: 900; }
 .page-section { padding: 76px 0 20px; }
 .page-intro { max-width: 820px; margin-bottom: 42px; }
 .page-intro.compact { margin-bottom: 24px; }
