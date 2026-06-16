@@ -44,8 +44,7 @@ function AdminPage() {
   const [users, setUsers] = useState([]);
   const [pendingOrders, setPendingOrders] = useState([]);
 
-  useEffect(() => {
-    Promise.all([
+  const loadAdminData = () => Promise.all([
       api.adminDashboardStats(),
       api.adminEnquiries(),
       api.adminSolutions(),
@@ -60,7 +59,15 @@ function AdminPage() {
         setPendingOrders(pendingOrdersData.pendingOrders || []);
       })
       .catch(() => null);
+
+  useEffect(() => {
+    loadAdminData();
   }, []);
+
+  const runAdminAction = async (action) => {
+    await action();
+    await loadAdminData();
+  };
 
   const activeLabel = adminNavItems.find((item) => item.key === activeSection)?.label || 'Dashboard';
   const goToSection = (key) => navigate(pathForSection[key] || '/dashboard');
@@ -93,10 +100,38 @@ function AdminPage() {
         </div>
         <div className="admin-content">
           {activeSection === 'dashboard' && <AdminDashboardPage stats={stats} onNavigate={goToSection} />}
-          {activeSection === 'solutions' && <AdminSolutionsPage solutions={solutions} />}
-          {activeSection === 'enquiries' && <AdminEnquiriesPage enquiries={enquiries} />}
-          {activeSection === 'users' && <AdminUsersPage users={users} />}
-          {activeSection === 'pendingOrders' && <AdminPendingOrdersPage pendingOrders={pendingOrders} />}
+          {activeSection === 'solutions' && (
+            <AdminSolutionsPage
+              solutions={solutions}
+              onCreate={(payload) => runAdminAction(() => api.createAdminSolution(payload))}
+              onUpdate={(id, payload) => runAdminAction(() => api.updateAdminSolution(id, payload))}
+              onDelete={(id) => runAdminAction(() => api.deleteAdminSolution(id))}
+            />
+          )}
+          {activeSection === 'enquiries' && (
+            <AdminEnquiriesPage
+              enquiries={enquiries}
+              onCreate={(payload) => runAdminAction(() => api.createAdminEnquiry(payload))}
+              onUpdate={(id, payload) => runAdminAction(() => api.updateAdminEnquiry(id, payload))}
+              onDelete={(id) => runAdminAction(() => api.deleteAdminEnquiry(id))}
+            />
+          )}
+          {activeSection === 'users' && (
+            <AdminUsersPage
+              users={users}
+              onCreate={(payload) => runAdminAction(() => api.createAdminUser(payload))}
+              onUpdate={(id, payload) => runAdminAction(() => api.updateAdminUser(id, payload))}
+              onDelete={(id) => runAdminAction(() => api.deleteAdminUser(id))}
+            />
+          )}
+          {activeSection === 'pendingOrders' && (
+            <AdminPendingOrdersPage
+              pendingOrders={pendingOrders}
+              onCreate={(payload) => runAdminAction(() => api.createAdminPendingOrder(payload))}
+              onUpdate={(id, payload) => runAdminAction(() => api.updateAdminPendingOrder(id, payload))}
+              onDelete={(id) => runAdminAction(() => api.deleteAdminPendingOrder(id))}
+            />
+          )}
         </div>
       </div>
     </section>

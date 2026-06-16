@@ -7,7 +7,9 @@
   .admin-content { padding: 28px 20px; }
   .admin-topbar { padding: 0 190px 0 20px; }
   .hero-panel { max-width: 520px; }
+  .hero-showcase { max-width: 520px; }
   .hero h1 { font-size: 3.6rem; }
+  .hero-loop-frame { background-position: center; }
 }
 @media (max-width: 900px) {
   .menu-toggle { display: grid; }
@@ -15,6 +17,7 @@
   .nav-links.is-open { display: flex; }
   .product-grid, .section-grid, .about-layout, .auth-page, .contact-layout, .category-grid, .mission-grid, .about-values-grid, .product-support-band, .dashboard-lower-grid { grid-template-columns: 1fr; }
   .stats-row, .dashboard-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 22px; }
+  .admin-crud-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-grid { grid-template-columns: 1fr; }
   .auth-visual { min-height: 260px; }
   .section-heading { align-items: start; flex-direction: column; }
@@ -28,6 +31,15 @@
   .brand { max-width: calc(100vw - 112px); font-size: .82rem; }
   .brand-icon { width: 40px; height: 40px; flex-basis: 40px; }
   .hero { min-height: auto; padding: 72px 0 92px; }
+  .pharma-hero { min-height: auto; }
+  .pharma-hero::before { background: linear-gradient(180deg, rgba(4, 25, 34, .95), rgba(4, 35, 45, .84)); }
+  .hero-showcase { min-height: 380px; padding: 18px; }
+  .showcase-topline { align-items: flex-start; flex-direction: column; }
+  .showcase-scene { min-height: 285px; }
+  .phone-mockup { width: 148px; height: 266px; }
+  .phone-map { height: 194px; }
+  .medicine-stack { width: 154px; height: 126px; }
+  .field-force-card { right: 0; width: 176px; min-height: 112px; }
   .hero h1 { font-size: 2.45rem; line-height: 1.08; }
   .auth-heading h1 { font-size: 2.1rem; }
   .hero-mini-list, .stats-row, .dashboard-stats, .feature-grid, .values-grid, .dashboard-grid { grid-template-columns: 1fr; }
@@ -44,5 +56,7 @@
   .admin-floating-actions { top: 10px; right: 12px; }
   .admin-floating-actions a { padding: 0 8px; }
   .admin-topbar { align-items: flex-start; flex-direction: column; justify-content: center; padding: 82px 20px 14px; }
+  .admin-crud-form { grid-template-columns: 1fr; }
+  .admin-form-wide { grid-column: 1; }
   .about-image-wrap, .about-image-wrap img { min-height: 300px; }
 }

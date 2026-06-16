@@ -22,7 +22,7 @@
 .stat-block { padding: 24px; background: white; border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); }
 .stat-block strong { display: block; font-size: 2rem; color: var(--brand-dark); }
 .stat-block span { color: var(--muted); font-weight: 700; }
-.search-input, input, textarea { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 13px 14px; background: white; color: var(--ink); }
+.search-input, input, textarea, select { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 13px 14px; background: white; color: var(--ink); }
 .search-input { max-width: 320px; }
 .filter-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
 .chip, .mode-switch button { border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; background: white; color: var(--brand-dark); font-weight: 800; cursor: pointer; }

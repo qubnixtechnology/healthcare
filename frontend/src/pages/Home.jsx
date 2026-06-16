@@ -14,7 +14,7 @@ import { useEffect, useMemo, useState } from 'react';
 import ProductCard from '../components/ProductCard.jsx';
 import StatBlock from '../components/StatBlock.jsx';
 import Button from '../components/Button.jsx';
-import { company, heroImage, products as fallbackProducts } from '../data/siteData.js';
+import { company, products as fallbackProducts } from '../data/siteData.js';
 import { api } from '../services/api.js';
 
 const categories = [
@@ -85,21 +85,24 @@ function Home() {
 
   return (
     <>
-      <section
-        className="hero hero-enhanced"
-        style={{ backgroundImage: `linear-gradient(90deg, rgba(6, 35, 49, 0.88), rgba(6, 35, 49, 0.38)), url(${heroImage})` }}
-      >
+      <section className="hero hero-enhanced pharma-hero">
+        <div className="hero-video-loop" aria-hidden="true">
+          <div className="hero-loop-frame hero-loop-frame-one" />
+          <div className="hero-loop-frame hero-loop-frame-two" />
+          <div className="hero-loop-frame hero-loop-frame-three" />
+          <div className="hero-loop-sweep" />
+        </div>
         <div className="container hero-layout">
           <div className="hero-content">
-            <p className="eyebrow">Excellence driven by technology, care delivered by experts</p>
+            <p className="eyebrow">Global pharma-tech field operations</p>
             <h1>{company.name}</h1>
             <p>
-              A tech-enabled pharmaceutical marketing company where patient care meets advanced software,
-              GPS-enabled field tracking, real-time reporting, and strip-by-strip QR authentication.
+              A technology-led healthcare partner connecting medicine reach, GPS-enabled field-force
+              visibility, real-time reporting, and verified pharma operations through one dependable ecosystem.
             </p>
             <div className="hero-actions">
-              <Button to="/products">Explore Solutions <ArrowRight size={18} /></Button>
-              <Button variant="light" to="/contact">Contact Team</Button>
+              <Button to="/contact">Partner With Us <ArrowRight size={18} /></Button>
+              <Button variant="light" to="/products">Explore Our Products</Button>
             </div>
             <div className="trust-row" aria-label={`${company.name} service strengths`}>
               <span><BadgeCheck size={17} /> Strip-level QR verification</span>
@@ -108,17 +111,33 @@ function Home() {
             </div>
           </div>
 
-          <aside className="hero-panel" aria-label="Quick product summary">
-            <div className="hero-panel-top">
-              <span><Sparkles size={18} /> Pharma-tech focus</span>
+          <aside className="hero-showcase" aria-label="Pharma technology banner visual">
+            <div className="showcase-topline">
+              <span><Sparkles size={18} /> Live field intelligence</span>
               <strong><AnimatedNumber value={productStats.clinicReadySupplies} suffix="+" /></strong>
             </div>
-            <p>Digital pharma operations organized for authenticity, traceability, fast reporting, and dependable reach.</p>
-            <div className="hero-mini-list">
-              <span>QR Codes</span>
-              <span>GPS Tracking</span>
-              <span>Reporting</span>
-              <span>Verified Reach</span>
+            <div className="showcase-scene">
+              <div className="phone-mockup">
+                <div className="phone-map">
+                  <span className="map-pin pin-one" />
+                  <span className="map-pin pin-two" />
+                  <span className="map-pin pin-three" />
+                  <span className="map-route" />
+                </div>
+                <div className="phone-footer">
+                  <span>GPS route</span>
+                  <strong>Active</strong>
+                </div>
+              </div>
+              <div className="medicine-stack">
+                <span />
+                <span />
+                <span />
+              </div>
+              <div className="field-force-card">
+                <span>Field Force</span>
+                <strong>Tablet reporting</strong>
+              </div>
             </div>
           </aside>
         </div>

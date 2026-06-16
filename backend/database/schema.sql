@@ -40,5 +40,5 @@ INSERT INTO products (name, category, price, rating, stock, image, description) 
 ('Strip-by-Strip QR Authentication', 'Product Traceability', 0, 4.9, 120, 'https://images.pexels.com/photos/4047186/pexels-photo-4047186.jpeg?auto=compress&cs=tinysrgb&w=900', 'Unique strip-level QR verification for authentic, transparent, and instantly checkable medicines.'),
 ('GPS Field Force Tracking', 'Field Operations', 0, 4.8, 85, 'https://images.pexels.com/photos/7709287/pexels-photo-7709287.jpeg?auto=compress&cs=tinysrgb&w=900', 'GPS-enabled reporting that keeps pharma outreach precise, time-bound, and accountable.'),
 ('Advanced Pharma Software', 'Digital Infrastructure', 0, 4.9, 64, 'https://images.pexels.com/photos/8376277/pexels-photo-8376277.jpeg?auto=compress&cs=tinysrgb&w=900', 'Smart software workflows for transparent pharmaceutical marketing and operational visibility.'),
-('Real-Time Reporting System', 'Analytics', 0, 4.7, 56, 'https://images.pexels.com/photos/8376295/pexels-photo-8376295.jpeg?auto=compress&cs=tinysrgb&w=900', 'Live reporting tools for tracking reach, performance, clinic activity, and field execution.');
-
+('Real-Time Reporting System', 'Analytics', 0, 4.7, 56, 'https://images.pexels.com/photos/8376295/pexels-photo-8376295.jpeg?auto=compress&cs=tinysrgb&w=900', 'Live reporting tools for tracking reach, performance, clinic activity, and field execution.'),
+('Curaveris-D Capsules', 'Product', 0, 4.8, 100, '/images/curaveris-d-capsules.png', 'Rabeprazole Sodium and Domperidone sustained release capsules with Curaveris branded packaging.');
